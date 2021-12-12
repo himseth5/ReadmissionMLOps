@@ -1,4 +1,5 @@
-import os, json
+import os
+import json
 import pytest
 import requests
 from azureml.core import Workspace, Webservice
@@ -6,20 +7,30 @@ from azureml.core import Workspace, Webservice
 deployment_name = os.getenv('DEPLOYMENT_NAME')
 
 test_sample = json.dumps({
-    'data': [{
-        "Age": 20,
-        "Sex": "male",
-        "Job": 0,
-        "Housing": "own",
-        "Saving accounts": "little",
-        "Checking account": "little",
-        "Credit amount": 100,
-        "Duration": 48,
-        "Purpose": "radio/TV"
-    }]
+    'data': [{'A1Cresult': 'None',
+              'admission_source_id': 'Emergency Room',
+              'admission_type_id': 'Emergency',
+              'age': '0-20',
+              'change': 'Ch',
+              'diabetesMed': 'Yes',
+              'diag_1': 0,
+              'discharge_disposition_id': 'Home',
+              'gender': 'Female',
+              'insulin': 'Up',
+              'max_glu_serum': 'None',
+              'num_lab_procedures': 59,
+              'num_medications': 18,
+              'num_procedures': 0,
+              'number_diagnoses': 9,
+              'number_emergency': 0,
+              'number_inpatient': 0,
+              'number_outpatient': 0,
+              'race': 'Caucasian',
+              'time_in_hospital': 3}]
 })
 
 ws = Workspace.from_config()
+
 
 def test_deployed_model_service():
     service = Webservice(ws, deployment_name)
@@ -31,7 +42,7 @@ def test_deployed_model_service():
     assert key1 is not None
     assert uri.startswith('http')
 
-    headers = {'Content-Type':'application/json',
+    headers = {'Content-Type': 'application/json',
                'Authorization': f'Bearer {key1}'}
     response = requests.post(uri, test_sample, headers=headers)
     assert response.status_code is 200

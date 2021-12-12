@@ -20,13 +20,13 @@ variables:
   deployment_name: 'readmission-prediction-api'
 
   # Azure Resource Manager connection created during pipeline creation
-  azure_service_connection_name: 'aml_accelarator_svc_conn'
+  azure_service_connection_name: 'aml_mlops_svc_conn'
 
 steps:
 - task: UsePythonVersion@0
   displayName: 'Setting Python version'
   inputs:
-    versionSpec: '3.6'
+    versionSpec: '3.8.12'
 
 - task: Bash@3
   displayName: 'Install Requirements'
