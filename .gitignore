@@ -1,3 +1,6 @@
+#Local Machine training
+train-local.py
+
 # AML specific
 
 .azureml

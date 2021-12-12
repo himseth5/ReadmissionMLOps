@@ -14,10 +14,10 @@ variables:
   resourcegroup: 'aml-demo'
   workspace: 'aml-demo'
   aml_compute_target: 'cpu-cluster'  
-  model_path: 'models/model1/'
-  experiment: 'train-ci'
-  model_name: 'german-credit'
-  deployment_name: 'german-credit-api-aci'
+  model_path: 'models/readmission_v1/'
+  experiment: 'train-logistic-regression'
+  model_name: 'readmission-prediction'
+  deployment_name: 'readmission-prediction-api'
 
   # Azure Resource Manager connection created during pipeline creation
   azure_service_connection_name: 'aml_accelarator_svc_conn'
@@ -100,7 +100,7 @@ steps:
     scriptType: bash
     inlineScript: |
       export DEPLOYMENT_NAME=$(deployment_name)
-      pytest --junitxml=junit/TEST-deployed-model.xml models/model1/deployment
+      pytest --junitxml=junit/TEST-deployed-model.xml models/readmission_v1/deployment
 
 - task: PublishTestResults@2
   displayName: 'Publish test results'
