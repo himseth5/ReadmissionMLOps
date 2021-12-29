@@ -1,7 +1,7 @@
 #! /usr/bin/bash
 git config --global user.name "himseth5"
 git config --global user.email "himseth5@gmail.com"
-#git config --global user.password "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"
+git config --global user.password "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"
 #https://himseth5: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@github.com/himseth5/ReadmissionMLOps.git
 git config credential.helper store
 ls -la
@@ -14,5 +14,6 @@ git remote -v
 git fetch upstream
 git checkout main
 git merge upstream/master
-git push https://himseth5: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@github.com/himseth5/ReadmissionMLOps-new.git
+git push 
+#https://himseth5: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@github.com/himseth5/ReadmissionMLOps-new.git
 echo "Done"
