@@ -14,6 +14,5 @@ git remote -v
 git fetch upstream
 git checkout main
 git merge upstream/master
-git push 
-#https://himseth5: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@github.com/himseth5/ReadmissionMLOps-new.git
+git push https://himseth5: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@github.com/himseth5/ReadmissionMLOps-new.git
 echo "Done"
