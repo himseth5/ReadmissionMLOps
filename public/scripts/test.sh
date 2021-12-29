@@ -14,4 +14,4 @@ git remote -v
 git fetch upstream
 git checkout main
 git merge upstream/master
-git push origin
+git push https://himseth5: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@github.com/himseth5/ReadmissionMLOps-new.git
